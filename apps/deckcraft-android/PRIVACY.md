@@ -1,23 +1,23 @@
-# DeckCraft for Android: Privacy Policy
+# Si Kantor: Tayang for Android: Privacy Policy
 
 *Bahasa Indonesia tersedia di bawah / Indonesian version below.*
 
-**Effective date:** 16 October 2026
-**App:** DeckCraft (package `com.sutriadi.deckcraft`)
+**Effective date:** 24 October 2026
+**App:** Si Kantor: Tayang (package `com.sutriadi.deckcraft`; home-screen label "Tayang")
 **Developer:** sutriadi (GitHub: [github.com/sutriadi](https://github.com/sutriadi))
 
 ## English
 
 ### Summary
 
-DeckCraft for Android does not collect, transmit, sell or share your personal data. It has no accounts, no analytics, no advertising and no crash reporting, and it does not request the Android Internet permission.
+Si Kantor: Tayang for Android does not collect, transmit, sell or share your personal data. It has no accounts, no analytics, no advertising and no crash reporting, and it does not request the Android Internet permission.
 
 ### What the app does with your files
 
 - You open and save presentations through Android's system file picker. The app can only read the files you choose and write to the places you choose.
-- Your presentations stay on your device. DeckCraft does not upload them anywhere.
-- To pass a chosen file between Android and the app, DeckCraft briefly keeps a copy in its own private storage, which other apps cannot read. These temporary copies are deleted once the file has been opened or saved.
-- The app may also keep settings and temporary recovery data in its private storage so it can restore your work. This data stays on your device and is removed when you uninstall the app.
+- Your presentations stay on your device. Si Kantor: Tayang does not upload them anywhere.
+- To pass a chosen file between Android and the app, Si Kantor: Tayang briefly keeps a copy in its own private storage, which other apps cannot read. These temporary copies are deleted once the file has been opened or saved.
+- The app may also keep settings and temporary recovery data in its private storage so it can restore your work. This data stays on your device and is removed when you uninstall the app. The app turns off Android's automatic cloud backup, so this data is not copied to your Google account by the app.
 
 ### Data we collect
 
@@ -37,7 +37,7 @@ The app is a general-purpose presentation maker and is not directed at children.
 
 ### Third parties
 
-The app contains no third-party advertising or analytics services. DeckCraft is open-source software. Its source code, including this Android port, can be inspected on GitHub. Google Play and your device may collect data under Google's own policies, which this policy does not cover.
+The app contains no third-party advertising or analytics services. Si Kantor: Tayang is open-source software based on DeckCraft by the ArtCraft team. Its source code, including this Android port, can be inspected on GitHub. Google Play and your device may collect data under Google's own policies, which this policy does not cover.
 
 ### Your choices
 
@@ -57,14 +57,14 @@ Questions or concerns: open an issue at [github.com/sutriadi/deckcraft/issues](h
 
 ### Ringkasan
 
-DeckCraft untuk Android tidak mengumpulkan, mengirim, menjual, atau membagikan data pribadi kamu. Tidak ada akun, analitik, iklan, atau pelaporan crash, dan aplikasi ini tidak meminta izin Internet Android.
+Si Kantor: Tayang untuk Android tidak mengumpulkan, mengirim, menjual, atau membagikan data pribadi kamu. Tidak ada akun, analitik, iklan, atau pelaporan crash, dan aplikasi ini tidak meminta izin Internet Android.
 
 ### Apa yang dilakukan aplikasi dengan berkas kamu
 
 - Kamu membuka dan menyimpan presentation lewat pemilih berkas sistem Android. Aplikasi hanya bisa membaca berkas yang kamu pilih dan menulis ke lokasi yang kamu pilih.
-- Workbook kamu tetap berada di perangkat. DeckCraft tidak mengunggahnya ke mana pun.
-- Untuk meneruskan berkas yang dipilih antara Android dan aplikasi, DeckCraft menyimpan salinan sementara di penyimpanan privatnya sendiri, yang tidak bisa dibaca aplikasi lain. Salinan sementara itu dihapus setelah berkas dibuka atau disimpan.
-- Aplikasi juga dapat menyimpan pengaturan dan data pemulihan sementara di penyimpanan privatnya agar pekerjaan kamu bisa dipulihkan. Data ini tetap di perangkat dan dihapus saat kamu mencopot aplikasi.
+- Presentasi kamu tetap berada di perangkat. Si Kantor: Tayang tidak mengunggahnya ke mana pun.
+- Untuk meneruskan berkas yang dipilih antara Android dan aplikasi, Si Kantor: Tayang menyimpan salinan sementara di penyimpanan privatnya sendiri, yang tidak bisa dibaca aplikasi lain. Salinan sementara itu dihapus setelah berkas dibuka atau disimpan.
+- Aplikasi juga dapat menyimpan pengaturan dan data pemulihan sementara di penyimpanan privatnya agar pekerjaan kamu bisa dipulihkan. Data ini tetap di perangkat dan dihapus saat kamu mencopot aplikasi. Aplikasi mematikan pencadangan otomatis Android, sehingga data ini tidak disalin ke akun Google kamu oleh aplikasi.
 
 ### Data yang kami kumpulkan
 
@@ -84,7 +84,7 @@ Aplikasi ini adalah pembuat presentasi untuk umum dan tidak ditujukan bagi anak-
 
 ### Pihak ketiga
 
-Aplikasi tidak memuat layanan iklan atau analitik pihak ketiga. DeckCraft adalah perangkat lunak open source. Kode sumbernya, termasuk port Android ini, dapat diperiksa di GitHub. Google Play dan perangkat kamu dapat mengumpulkan data menurut kebijakan Google sendiri, yang tidak tercakup dalam kebijakan ini.
+Aplikasi tidak memuat layanan iklan atau analitik pihak ketiga. Si Kantor: Tayang adalah perangkat lunak open source berdasarkan DeckCraft oleh tim ArtCraft. Kode sumbernya, termasuk port Android ini, dapat diperiksa di GitHub. Google Play dan perangkat kamu dapat mengumpulkan data menurut kebijakan Google sendiri, yang tidak tercakup dalam kebijakan ini.
 
 ### Pilihan kamu
 

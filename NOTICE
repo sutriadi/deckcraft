@@ -80,3 +80,9 @@ Code dependencies
   (https://github.com/saucecontrol/Compact-ICC-Profiles) are CC0-1.0; the profile
   licence is retained in licenses/pdf-writer/LICENSE-ICC.txt and exact files, sources
   and hashes are in ATTRIBUTION.md.
+
+Modified version
+----------------
+"Si Kantor: Tayang" (Android app, `apps/deckcraft-android`) is a modified version of DeckCraft by
+the ArtCraft team and community, published independently by sutriadi. It is not an ArtCraft
+product and is not endorsed by the ArtCraft Team. The ArtCraft Marks are not used in it.
