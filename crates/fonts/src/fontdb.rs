@@ -513,6 +513,8 @@ pub fn system_font_dirs() -> Vec<std::path::PathBuf> {
             // DeckCraft never ships or needs them.
             dirs.push(l.join("Microsoft\\FontCache\\4\\CloudFonts"));
         }
+    } else if cfg!(target_os = "android") {
+        dirs.extend(["/system/fonts", "/system_ext/fonts", "/product/fonts"].map(Into::into));
     } else {
         dirs.extend(["/usr/share/fonts", "/usr/local/share/fonts"].map(Into::into));
         if let Some(h) = &home {
