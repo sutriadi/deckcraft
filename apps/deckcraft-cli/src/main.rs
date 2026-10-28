@@ -73,8 +73,10 @@ fn main() -> ExitCode {
         Some("app") => report(app(rest)),
         Some("mcp") => report(mcp(rest)),
         Some("links") => {
-            use deckcraft_engine::links::*;
-            outln!("Website   {WEBSITE}\nApp page  {APP_PAGE}\nGitHub    {GITHUB}");
+            use deckcraft_engine::links::{APP_PAGE, GITHUB, WEBSITE};
+            outln!("Website   {WEBSITE}
+App page  {APP_PAGE}
+GitHub    {GITHUB}");
             ExitCode::SUCCESS
         }
         Some(other) => unknown(other),
@@ -208,7 +210,7 @@ fn bench(args: &[String]) -> Result<(), String> {
         ("save .deckcraft", time_ms(runs, || save_bytes(&doc, "deckcraft").map(|_| ()).map_err(e))?),
         ("save .pptx", time_ms(runs, || save_bytes(&doc, "pptx").map(|_| ()).map_err(e))?),
         ("open .pptx", time_ms(runs, || open_presentation("bench.pptx", &pptx).map(|_| ()).map_err(e))?),
-        ("export .pdf", time_ms(runs.min(3), || save_bytes(&doc, "pdf").map(|_| ()).map_err(e))?),
+        ("export .pdf", time_ms(runs, || save_bytes(&doc, "pdf").map(|_| ()).map_err(e))?),
     ];
     let render_total: f64 = per_slide.iter().map(|m| m.0).sum();
     let render_max = per_slide.iter().map(|m| m.1).fold(0.0, f64::max);
