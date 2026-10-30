@@ -440,11 +440,22 @@ impl Decoder {
         let template = Frame::new(0, 0, w, h, sps.log2_ctb, sps.bit_depth_luma, sps.bit_depth_chroma);
         let next_id = &mut self.next_id;
         let mut missing = 0u64;
+        let max_missing = (sps.max_dec_pic_buffering as u64).clamp(1, 16);
+        let mut shared_gray: Option<FrameRef> = None;
         let mut make_missing = |p: i32| -> FrameRef {
             missing += 1;
+            if missing > max_missing
+                && let Some(ref g) = shared_gray
+            {
+                return g.clone();
+            }
             let id = *next_id;
             *next_id += 1;
-            Arc::new(Frame::gray(id, p, &template))
+            let f = Arc::new(Frame::gray(id, p, &template));
+            if shared_gray.is_none() {
+                shared_gray = Some(f.clone());
+            }
+            f
         };
         let rps = self.dpb.apply_rps(sh, poc, max_lsb, irap_no_rasl, &mut make_missing)?;
         if missing > 0 {
@@ -550,9 +561,9 @@ fn run_job(
     draft: bool,
     shared: &Shared,
 ) {
-    let mut pic = PicState::new(frame.clone(), sps, pps, layout, scaling);
-    pic.draft = draft;
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        let mut pic = PicState::new(frame.clone(), sps, pps, layout, scaling);
+        pic.draft = draft;
         let mut first_err = None;
         for s in &slices {
             if let Err(e) = SliceDecoder::decode(&mut pic, s) {
@@ -560,10 +571,10 @@ fn run_job(
             }
         }
         crate::filter::finish(&mut pic);
-        first_err
+        (pic, first_err)
     }));
-    let err = match result {
-        Ok(e) => e,
+    let (pic, err) = match result {
+        Ok((pic, err)) => (Some(pic), err),
         Err(_) => {
             // make sure readers never block on this frame
             let gray = Frame::gray(0, frame.poc, &frame);
@@ -573,18 +584,20 @@ fn run_job(
                     frame.publish(r, crate::picture::FrameRow { y: row.y.clone(), cb: row.cb.clone(), cr: row.cr.clone(), col: row.col.clone() });
                 }
             }
-            Some(Error::Invalid("internal error while decoding a picture".into()))
+            (None, Some(Error::Invalid("internal error while decoding a picture".into())))
         }
     };
     if let Ok(mut s) = shared.stats.lock() {
         s.pictures += 1;
-        for b in &pic.blk {
-            if b.flags & F_INTRA != 0 {
-                s.intra_4x4_blocks += 1;
-            } else if b.flags & F_SKIP != 0 {
-                s.skip_4x4_blocks += 1;
-            } else if b.flags != 0 {
-                s.inter_4x4_blocks += 1;
+        if let Some(pic) = &pic {
+            for b in &pic.blk {
+                if b.flags & F_INTRA != 0 {
+                    s.intra_4x4_blocks += 1;
+                } else if b.flags & F_SKIP != 0 {
+                    s.skip_4x4_blocks += 1;
+                } else if b.flags != 0 {
+                    s.inter_4x4_blocks += 1;
+                }
             }
         }
     }
