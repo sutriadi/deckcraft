@@ -1107,7 +1107,7 @@ dependencies = [
 
 [[package]]
 name = "deckcraft-android"
-version = "0.15.0"
+version = "0.18.1"
 dependencies = [
  "android-activity",
  "android_logger",
